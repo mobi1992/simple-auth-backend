@@ -29,6 +29,7 @@ router.post('/upload', upload.single('file'), async (req: Request, res: Response
         path: result.result.path_display || result.result.path_lower,
         id: result.result.id,
         size: result.result.size,
+        sharedLink: result.sharedLink,
       },
       dropboxPath: result.result.path_display || result.result.path_lower,
     });
