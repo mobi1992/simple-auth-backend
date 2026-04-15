@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express, { Request, Response } from 'express';
+import cors from 'cors';
 import uploadRoute from './routes/upload.route';
 import authRoute from './routes/auth.route';
 import fileRoute from './routes/file.route';
@@ -9,6 +10,13 @@ import { connectDatabase } from './config/database';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(
+  cors({
+    origin: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 app.use(express.json());
 
 app.use((req: Request, res: Response, next) => {
