@@ -3,6 +3,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import uploadRoute from './routes/upload.route';
 import authRoute from './routes/auth.route';
+import meRoute from './routes/me.route';
 import fileRoute from './routes/file.route';
 import listFilesRoute from './routes/list-files.route';
 import { connectDatabase } from './config/database';
@@ -29,6 +30,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/auth', authRoute);
+app.use('/me', meRoute);
 app.use('/', listFilesRoute);
 app.use('/', fileRoute);
 app.use('/', uploadRoute);

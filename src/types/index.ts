@@ -20,6 +20,13 @@ export interface LoginData {
   password: string;
 }
 
+export interface UpdateMeData {
+  name?: string;
+  email?: string;
+  password?: string;
+  currentPassword?: string;
+}
+
 export interface JwtPayload {
   userId: number;
   email: string;
